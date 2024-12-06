@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
 export interface TodoItem {
@@ -18,4 +18,16 @@ export interface TodoItem {
 export class AppComponent {
   todoList: TodoItem[] = [];
   newTask: string = '';
+
+  addTask(): void {
+    if (this.newTask.trim() !== '') {
+      const newTodoItem: TodoItem = {
+        id: Date.now(),
+        task: this.newTask,
+        completed: false,
+      };
+      this.todoList.push(newTodoItem);
+      console.log(this.todoList);
+    }
+  }
 }
