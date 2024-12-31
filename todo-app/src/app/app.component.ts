@@ -31,4 +31,17 @@ export class AppComponent {
       console.log(this.todoList);
     }
   }
+
+  toggleCompleted(index: number):void{
+    console.log(index);
+    this.todoList[index].completed = !this.todoList[index].completed;
+    console.log(this.todoList);
+  }
+
+
+deleteTask(id:number):void{
+  this.todoList = this.todoList.filter(item => item.id !== id)
+  console.log(this.todoList);
+
+}
 }
